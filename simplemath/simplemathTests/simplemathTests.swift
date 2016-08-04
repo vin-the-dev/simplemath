@@ -2,7 +2,7 @@
 //  simplemathTests.swift
 //  simplemathTests
 //
-//  Created by Vineeth Vijayan on 03/08/16.
+//  Created by Vineeth Vijayan on 04/08/16.
 //  Copyright © 2016 creativelogics. All rights reserved.
 //
 
@@ -28,7 +28,7 @@ class simplemathTests: XCTestCase {
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measureBlock {
+        self.measure {
             // Put the code you want to measure the time of here.
         }
     }

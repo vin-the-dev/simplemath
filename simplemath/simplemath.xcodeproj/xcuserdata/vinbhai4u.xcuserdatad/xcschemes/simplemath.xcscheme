@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0730"
+   LastUpgradeVersion = "0800"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "36F9DD381D526AB800A9B9FA"
+               BlueprintIdentifier = "36F68A381D5270C1004EADEC"
                BuildableName = "simplemath.app"
                BlueprintName = "simplemath"
                ReferencedContainer = "container:simplemath.xcodeproj">
@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "36F9DD4C1D526AB900A9B9FA"
+               BlueprintIdentifier = "36F68A4C1D5270C2004EADEC"
                BuildableName = "simplemathTests.xctest"
                BlueprintName = "simplemathTests"
                ReferencedContainer = "container:simplemath.xcodeproj">
@@ -42,7 +42,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "36F9DD571D526AB900A9B9FA"
+               BlueprintIdentifier = "36F68A571D5270C2004EADEC"
                BuildableName = "simplemathUITests.xctest"
                BlueprintName = "simplemathUITests"
                ReferencedContainer = "container:simplemath.xcodeproj">
@@ -52,7 +52,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "36F9DD381D526AB800A9B9FA"
+            BlueprintIdentifier = "36F68A381D5270C1004EADEC"
             BuildableName = "simplemath.app"
             BlueprintName = "simplemath"
             ReferencedContainer = "container:simplemath.xcodeproj">
@@ -75,7 +75,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "36F9DD381D526AB800A9B9FA"
+            BlueprintIdentifier = "36F68A381D5270C1004EADEC"
             BuildableName = "simplemath.app"
             BlueprintName = "simplemath"
             ReferencedContainer = "container:simplemath.xcodeproj">
@@ -94,7 +94,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "36F9DD381D526AB800A9B9FA"
+            BlueprintIdentifier = "36F68A381D5270C1004EADEC"
             BuildableName = "simplemath.app"
             BlueprintName = "simplemath"
             ReferencedContainer = "container:simplemath.xcodeproj">

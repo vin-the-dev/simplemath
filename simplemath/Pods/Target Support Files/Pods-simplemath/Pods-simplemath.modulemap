@@ -1,0 +1,6 @@
+framework module Pods_simplemath {
+  umbrella header "Pods-simplemath-umbrella.h"
+
+  export *
+  module * { export * }
+}

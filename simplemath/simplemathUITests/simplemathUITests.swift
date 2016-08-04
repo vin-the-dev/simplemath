@@ -2,7 +2,7 @@
 //  simplemathUITests.swift
 //  simplemathUITests
 //
-//  Created by Vineeth Vijayan on 03/08/16.
+//  Created by Vineeth Vijayan on 04/08/16.
 //  Copyright © 2016 creativelogics. All rights reserved.
 //
 
