@@ -19,7 +19,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FIRApp.configure()
         
+        let settings: UIUserNotificationSettings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+        
+        application.registerUserNotificationSettings(settings)
+        application.registerForRemoteNotifications()
+        
+        
+        let token = FIRInstanceID.instanceID().token()!
+        print("FCM Token")
+        print(token)
+        
         return true
+    }
+    
+    func application(_ application: UIApplication,
+                     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        print("Device Token")
+        print(deviceToken)
+        
+        FIRInstanceID.instanceID().setAPNSToken(deviceToken as Data, type: FIRInstanceIDAPNSTokenType.sandbox)
+        
+//        let token = FIRInstanceID.instanceID().token()!
+//        print(token)
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject],
+                     fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+        // If you are receiving a notification message while your app is in the background,
+        // this callback will not be fired till the user taps on the notification launching the application.
+        // TODO: Handle data of notification
+        
+        // Print message ID.
+        print("Message ID: \(userInfo["gcm.message_id"]!)")
+        
+        // Print full message.
+        print("%@", userInfo)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
