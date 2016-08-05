@@ -1,6 +1,0 @@
-framework module Pods_simplemathTests {
-  umbrella header "Pods-simplemathTests-umbrella.h"
-
-  export *
-  module * { export * }
-}
