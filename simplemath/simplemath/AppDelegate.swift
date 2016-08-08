@@ -19,7 +19,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FIRApp.configure()
         
-        let settings: UIUserNotificationSettings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+        let textAction = UIMutableUserNotificationAction()
+        textAction.identifier = "TEXT_ACTION"
+        textAction.title = "Reply"
+        textAction.activationMode = .background
+        textAction.isAuthenticationRequired = false
+        textAction.isDestructive = false
+        textAction.behavior = .textInput
+        
+        let category = UIMutableUserNotificationCategory()
+        category.identifier = "CATEGORY_ID"
+        category.setActions([textAction], for: .default)
+        category.setActions([textAction], for: .minimal)
+        
+        let categories = NSSet(object: category) as! Set<UIUserNotificationCategory>
+        let settings: UIUserNotificationSettings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: categories)
         
         application.registerUserNotificationSettings(settings)
         application.registerForRemoteNotifications()
