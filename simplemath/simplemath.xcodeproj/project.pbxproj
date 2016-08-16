@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		36E0A47F1D552EF800AC1187 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36E0A47E1D552EF800AC1187 /* GoogleService-Info.plist */; };
+		2212333E1D607636007C0FA7 /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2212333D1D607636007C0FA7 /* IntExtensions.swift */; };
+		221233401D607680007C0FA7 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2212333F1D607680007C0FA7 /* StringExtensions.swift */; };
+		221233431D607836007C0FA7 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221233421D607835007C0FA7 /* Functions.swift */; };
+		221233451D607F06007C0FA7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 221233441D607F06007C0FA7 /* GoogleService-Info.plist */; };
+		221233491D60A129007C0FA7 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221233481D60A129007C0FA7 /* AppConstants.swift */; };
 		36F68A3D1D5270C1004EADEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F68A3C1D5270C1004EADEC /* AppDelegate.swift */; };
 		36F68A3F1D5270C1004EADEC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F68A3E1D5270C1004EADEC /* ViewController.swift */; };
 		36F68A421D5270C1004EADEC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36F68A401D5270C1004EADEC /* Main.storyboard */; };
@@ -39,8 +43,12 @@
 
 /* Begin PBXFileReference section */
 		005F5505AA0E1BC6BB0803ED /* Pods-simplemathUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-simplemathUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-simplemathUITests/Pods-simplemathUITests.release.xcconfig"; sourceTree = "<group>"; };
+		2212333D1D607636007C0FA7 /* IntExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntExtensions.swift; path = Extensions/IntExtensions.swift; sourceTree = "<group>"; };
+		2212333F1D607680007C0FA7 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		221233421D607835007C0FA7 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Functions.swift; path = Common/Functions.swift; sourceTree = "<group>"; };
+		221233441D607F06007C0FA7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		221233481D60A129007C0FA7 /* AppConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppConstants.swift; path = Common/AppConstants.swift; sourceTree = "<group>"; };
 		3455B51501BDAFAFE1D42DE9 /* Pods_simplemathTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_simplemathTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		36E0A47E1D552EF800AC1187 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		36F68A391D5270C1004EADEC /* simplemath.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = simplemath.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36F68A3C1D5270C1004EADEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36F68A3E1D5270C1004EADEC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -92,9 +100,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		221233381D6057E1007C0FA7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2212333D1D607636007C0FA7 /* IntExtensions.swift */,
+				2212333F1D607680007C0FA7 /* StringExtensions.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		221233411D6077FF007C0FA7 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				221233481D60A129007C0FA7 /* AppConstants.swift */,
+				221233421D607835007C0FA7 /* Functions.swift */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
 		36F68A301D5270C1004EADEC = {
 			isa = PBXGroup;
 			children = (
+				221233381D6057E1007C0FA7 /* Extensions */,
 				36F68A3B1D5270C1004EADEC /* simplemath */,
 				36F68A501D5270C2004EADEC /* simplemathTests */,
 				36F68A5B1D5270C2004EADEC /* simplemathUITests */,
@@ -117,14 +144,15 @@
 		36F68A3B1D5270C1004EADEC /* simplemath */ = {
 			isa = PBXGroup;
 			children = (
+				221233411D6077FF007C0FA7 /* Common */,
 				36FF89B91D5524D200D7AE63 /* simplemath.entitlements */,
 				36F68A3C1D5270C1004EADEC /* AppDelegate.swift */,
 				36F68A3E1D5270C1004EADEC /* ViewController.swift */,
 				36F68A401D5270C1004EADEC /* Main.storyboard */,
 				36F68A431D5270C2004EADEC /* Assets.xcassets */,
 				36F68A451D5270C2004EADEC /* LaunchScreen.storyboard */,
+				221233441D607F06007C0FA7 /* GoogleService-Info.plist */,
 				36F68A481D5270C2004EADEC /* Info.plist */,
-				36E0A47E1D552EF800AC1187 /* GoogleService-Info.plist */,
 			);
 			path = simplemath;
 			sourceTree = "<group>";
@@ -252,7 +280,7 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
-								enabled = 0;
+								enabled = 1;
 							};
 							com.apple.Push = {
 								enabled = 1;
@@ -301,9 +329,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				36F68A471D5270C2004EADEC /* LaunchScreen.storyboard in Resources */,
+				221233451D607F06007C0FA7 /* GoogleService-Info.plist in Resources */,
 				36F68A441D5270C2004EADEC /* Assets.xcassets in Resources */,
 				36F68A421D5270C1004EADEC /* Main.storyboard in Resources */,
-				36E0A47F1D552EF800AC1187 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,7 +494,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				221233401D607680007C0FA7 /* StringExtensions.swift in Sources */,
+				221233491D60A129007C0FA7 /* AppConstants.swift in Sources */,
+				2212333E1D607636007C0FA7 /* IntExtensions.swift in Sources */,
 				36F68A3F1D5270C1004EADEC /* ViewController.swift in Sources */,
+				221233431D607836007C0FA7 /* Functions.swift in Sources */,
 				36F68A3D1D5270C1004EADEC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

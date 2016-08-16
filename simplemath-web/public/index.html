@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Welcome to Firebase Hosting</title>
+    <style media="screen">
+      body {
+        font-family: Roboto, Arial, sans-serif;
+        background: #ECEFF1;
+        color: rgba(0,0,0,0.87);
+      }
+
+      a {
+        color: rgb(3,155,229);
+      }
+
+      #message {
+        max-width: 400px;
+        margin: 40px auto;
+        box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2),0 1px 1px 0 rgba(0,0,0,0.14),0 2px 1px -1px rgba(0,0,0,0.12);
+        border-radius: 2px;
+        background: white;
+        padding: 16px 24px;
+      }
+
+      #message h1 {
+        font-size: 22px;
+        font-weight: 500;
+        text-align: center;
+        margin: 0 0 16px;
+      }
+
+      #message p {
+        font-weight: 300;
+        line-height: 150%;
+      }
+
+      #message ul {
+        list-style: none;
+        margin: 16px 0 0;
+        padding: 0;
+        text-align: center;
+      }
+
+      #message li a {
+        display: inline-block;
+        padding: 8px;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-weight: 500;
+        background: rgb(3,155,229);
+        color: white;
+        border: 1px solid rgb(3,155,229);
+        border-radius: 3px;
+        font-size: 14px;
+        box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+      }
+    </style>
+    
+    <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDFHyf-TSIsAX5WEarJx4aOoW5Ado5nafs",
+        authDomain: "simple-math-fa652.firebaseapp.com",
+        databaseURL: "https://simple-math-fa652.firebaseio.com",
+        storageBucket: "simple-math-fa652.appspot.com",
+      };
+      firebase.initializeApp(config);
+    </script>
+        
+    <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDFHyf-TSIsAX5WEarJx4aOoW5Ado5nafs",
+        authDomain: "simple-math-fa652.firebaseapp.com",
+        databaseURL: "https://simple-math-fa652.firebaseio.com",
+        storageBucket: "simple-math-fa652.appspot.com",
+      };
+      firebase.initializeApp(config);
+      window.onload = function() {
+        var settings = {
+          "async": true,
+          "crossDomain": true,
+          "url": "https://fcm.googleapis.com/fcm/send",
+          "method": "POST",
+          "headers": {
+            "authorization": "key=AIzaSyD-jHhTOQ2Ku82wykZ5b3wGC-J8yOtajxA",
+            "content-type": "application/json",
+            "cache-control": "no-cache",
+            "postman-token": "816cf753-0aab-b3d9-d145-3e2566c8cde3"
+          },
+          "processData": false,
+          "data": "{\n    \"to\" : \"fALCMVX_RCE:APA91bHl3Z9Ruv_GVSVCcnpxVES8Fpzy8s1C_bRjfGngYncf6B_Go0CHvbFd_cRc31e0Aj7NDXlNCjN4gJmQoRaahnmGa3YFUAjugXI5l-K6oZ9UESQ8wDgmC5xs-aFHFbquj-hFzcs3\"\n    ,\n    \"notification\" : {\n        \"body\" : \"test\",\n        \"click_action\": \"CATEGORY_ID\"\n    },\n    \"priority\": \"high\",\n    \"content_available\": true\n}"
+        }
+
+        $.ajax(settings).done(function (response) {
+          console.log(response);
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <div id="message">
+      <h1>Welcome to Firebase Hosting</h1>
+      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
+      <ul>
+        <li><a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a></li>
+      </ul>
+    </div>
+  </body>
+</html>

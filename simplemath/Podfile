@@ -8,6 +8,9 @@ target 'simplemath' do
   # Pods for simplemath
   pod 'Firebase'
   pod 'FirebaseMessaging'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
+  pod 'GoogleSignIn'
   
   target 'simplemathTests' do
     inherit! :search_paths

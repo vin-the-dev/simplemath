@@ -8,16 +8,20 @@
 
 import UIKit
 import Firebase
+import GoogleSignIn
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    override init(){
+        FIRApp.configure()
+        
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        FIRApp.configure()
         
         let textAction = UIMutableUserNotificationAction()
         textAction.identifier = "TEXT_ACTION"
@@ -52,7 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print(deviceToken)
         
         FIRInstanceID.instanceID().setAPNSToken(deviceToken as Data, type: FIRInstanceIDAPNSTokenType.sandbox)
-        
+        FIRMessaging.messaging().subscribe(toTopic: "/topics/allusers")
 //        let token = FIRInstanceID.instanceID().token()!
 //        print(token)
     }
@@ -62,6 +66,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If you are receiving a notification message while your app is in the background,
         // this callback will not be fired till the user taps on the notification launching the application.
         // TODO: Handle data of notification
+        
+        FIRMessaging.messaging().appDidReceiveMessage(userInfo)
         
         // Print message ID.
         print("Message ID: \(userInfo["gcm.message_id"]!)")
@@ -91,7 +97,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    func application(_ application: UIApplication, handleActionWithIdentifier identifier: String?, forRemoteNotification userInfo: [NSObject : AnyObject], withResponseInfo responseInfo: [NSObject : AnyObject], completionHandler: () -> Void) {
+        
+        let reply = responseInfo[UIUserNotificationActionResponseTypedTextKey] as! String
+        
+        print("%@", userInfo)
 
+        var strAlert = " "
+        strAlert = strAlert + userInfo["num1"]!.description + " "
+        strAlert = strAlert + userInfo["num2"]!.description + " "
+        strAlert = strAlert + userInfo["action"]!.description + " "
+        
+        if let num1 = userInfo["num1"]!.description {
+            if let num2 = userInfo["num2"]!.description{
+                if let action = userInfo["action"]!.description {
+                    if let result = userInfo["result"]!.description {
+                        uploadAnalytics(num1: num1, num2: num2, action: action, result: result, reply: reply)
+                    }
+                }
+            }
+        }
+        
+        FIRMessaging.messaging().appDidReceiveMessage(userInfo)
+        
+    }
+    
+    func application(_ application: UIApplication,
+                     open url: URL, options: [String: AnyObject]) -> Bool {
+        return GIDSignIn.sharedInstance().handle(url,
+                                                 sourceApplication: options[UIApplicationOpenURLOptionsSourceApplicationKey] as? String,
+                                                 annotation: options[UIApplicationOpenURLOptionsAnnotationKey])
+    }
 
 }
 
