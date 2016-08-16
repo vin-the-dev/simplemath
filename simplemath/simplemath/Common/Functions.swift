@@ -31,6 +31,8 @@ func uploadAnalytics(num1: String, num2: String, action: String, result: String,
         
         scoresRef.child(uId).runTransactionBlock({ (currentData: FIRMutableData) -> FIRTransactionResult in
 
+            print(uId)
+            
             var value = currentData.value as? [String : AnyObject]
             
             if value == nil {

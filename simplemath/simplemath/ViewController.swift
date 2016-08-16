@@ -56,7 +56,26 @@ class ViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
         
         if FIRAuth.auth()?.currentUser != nil {
             _lbl.text = "Welcome " + (FIRAuth.auth()?.currentUser?.displayName)!
-            _lbl.text = scoresRef.child((FIRAuth.auth()?.currentUser?.uid)!).value(forKey: "score") as! String
+            
+            let userID = FIRAuth.auth()?.currentUser?.uid
+            scoresRef.child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+                // Get user value
+                
+                print(snapshot.value!["score"]??.stringValue)
+                
+                if let score = snapshot.value!["score"]??.description {
+                    if let totQ = snapshot.value!["totalQuestions"]??.description {
+                        self._lbl.text = self._lbl.text! + " Score: " + score + "/" + totQ
+                    }
+                }
+                // ...
+            }) { (error) in
+                print(error.localizedDescription)
+            }
+            
+//            if let strScore = scoresRef.child((FIRAuth.auth()?.currentUser?.uid)!) {
+//                _lbl.text = strScore.value(forKey: "score") as? String
+//            }
         }
         else{
             _lbl.text = "Not Logged in!!!"

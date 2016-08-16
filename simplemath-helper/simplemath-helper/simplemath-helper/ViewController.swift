@@ -24,41 +24,40 @@ class ViewController: UIViewController {
         let request = NSMutableURLRequest(url: NSURL(string: "https://fcm.googleapis.com/fcm/send")! as URL)
         
         let num1 = Int.random(lower: 1, 100)
-        let num2 = Int.random(lower: 1, 100)
-        let actionNumber = Int.random(lower: 1, 4)
+        var num2 = Int.random(lower: 1, 100)
+        let actionNumber = Int.random(lower: 1, 3)
         var action = "+"
-        var result = 30
+        var result = 0
         
         switch actionNumber {
         case 1:
-            result = num1 + num2
             action = "+"
+            result = num1 + num2
             break
         case 2:
-            if num1 > num2 {
-                result = num1 - num2
-            }
-            else{
-                result = num2 - num1
-            }
             action = "-"
+            if num1 < num2 {
+                num2 = Int.random(lower: 0, num1)
+            }
+            result = num1 - num2
+            
             break
         case 3:
-            result = num1 * num2
             action = "*"
+            num2 = Int.random(lower: 0, 20)
+            result = num1 * num2
             break
         case 4:
-            
+            action = "/"
             if num1 > num2 {
                 result = num1 / num2
             }
             else{
                 result = num2 / num1
             }
-            action = "/"
         default:
-            result = num1 + num2
             action = "+"
+            result = num1 + num2
         }
         
         request.httpMethod = "POST"
